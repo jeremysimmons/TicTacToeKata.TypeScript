@@ -5,7 +5,7 @@ var TurnServiceTests = (function () {
             var turnResult;
             beforeEach(function () {
                 game = new Game();
-                turnResult = TurnResult.NotSet;
+                turnResult = 0 /* NotSet */;
             });
             function validMove(scenarioName, gameSetup, attempt) {
                 describe(scenarioName, function () {
@@ -18,7 +18,7 @@ var TurnServiceTests = (function () {
                         turnResult = turnService.tryTakeTurn(game, attempt);
                     });
                     it('is a valid move', function () {
-                        expect(turnResult).toBe(TurnResult.Valid);
+                        expect(turnResult).toBe(2 /* Valid */);
                     });
                     it('increases the turn', function () {
                         expect(game.currentTurn).toBe(turnNumberAtStart + 1);
@@ -28,7 +28,7 @@ var TurnServiceTests = (function () {
                     });
                     it('changes the turn', function () {
                         expect(game.whosTurnIsIt).not.toBe(whosTurnIsItAtStart);
-                        expect(game.whosTurnIsIt).not.toBe(Marker.Empty);
+                        expect(game.whosTurnIsIt).not.toBe(0 /* Empty */);
                     });
                 });
             }
@@ -46,7 +46,7 @@ var TurnServiceTests = (function () {
                         expect(game.currentTurn).toBe(turnNumberAtStart);
                     });
                     it('is not a valid move', function () {
-                        expect(turnResult).toBe(TurnResult.Invalid);
+                        expect(turnResult).toBe(1 /* Invalid */);
                     });
                     it('done not change whom\'s turn it is', function () {
                         expect(game.whosTurnIsIt).toBe(whosTurnIsItAtStart);
@@ -56,32 +56,32 @@ var TurnServiceTests = (function () {
             validMove('first move', function (g) {
             }, new TurnAttempt(0, 0));
             validMove('second turn picking empty space', function (g) {
-                g.board[0][0] = Marker.X;
+                g.board[0][0] = 1 /* X */;
                 g.currentTurn = 2;
-                g.whoGoesFirst = Marker.X;
-                g.whosTurnIsIt = Marker.O;
+                g.whoGoesFirst = 1 /* X */;
+                g.whosTurnIsIt = 2 /* O */;
             }, new TurnAttempt(0, 1));
             validMove('winning move', function (g) {
-                g.board[0][0] = Marker.X;
-                g.board[0][1] = Marker.O;
-                g.board[1][1] = Marker.X;
-                g.board[0][2] = Marker.O;
-                g.whoGoesFirst = Marker.X;
+                g.board[0][0] = 1 /* X */;
+                g.board[0][1] = 2 /* O */;
+                g.board[1][1] = 1 /* X */;
+                g.board[0][2] = 2 /* O */;
+                g.whoGoesFirst = 1 /* X */;
                 g.currentTurn = 5;
-                g.whosTurnIsIt = Marker.X;
+                g.whosTurnIsIt = 1 /* X */;
             }, new TurnAttempt(2, 2));
             invalidMove('second turn space taken', function (g) {
-                g.board[2][2] = Marker.X;
-                g.whoGoesFirst = Marker.X;
+                g.board[2][2] = 1 /* X */;
+                g.whoGoesFirst = 1 /* X */;
                 g.currentTurn = 2;
-                g.whosTurnIsIt = Marker.O;
+                g.whosTurnIsIt = 2 /* O */;
             }, new TurnAttempt(2, 2));
             invalidMove('thrid turn space taken', function (g) {
-                g.board[2][2] = Marker.X;
-                g.board[0][0] = Marker.O;
-                g.whoGoesFirst = Marker.X;
+                g.board[2][2] = 1 /* X */;
+                g.board[0][0] = 2 /* O */;
+                g.whoGoesFirst = 1 /* X */;
                 g.currentTurn = 3;
-                g.whosTurnIsIt = Marker.X;
+                g.whosTurnIsIt = 1 /* X */;
             }, new TurnAttempt(0, 0));
         });
     }

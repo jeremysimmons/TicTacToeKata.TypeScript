@@ -1,5 +1,5 @@
 ﻿enum TurnResult {
-	NotSet,
-	Invalid,
-	Valid,
+    NotSet,
+    Invalid,
+    Valid,
 } 

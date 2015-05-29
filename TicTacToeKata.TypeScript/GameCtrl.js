@@ -2,8 +2,8 @@ var GameCtrlState = (function () {
     function GameCtrlState() {
         this.currentGame = new Game();
         this.previousGames = [];
-        this.currentGameResult = new GameResult(false, false, Marker.Empty);
-        this.currentTurnResult = TurnResult.NotSet;
+        this.currentGameResult = new GameResult(false, false, 0 /* Empty */);
+        this.currentTurnResult = 0 /* NotSet */;
     }
     return GameCtrlState;
 })();
@@ -19,8 +19,8 @@ function GameCtrl($scope, turnService, gameResultService) {
     $scope.resetGame = function () {
         $scope.gameState.previousGames.push($scope.gameState.currentGame);
         $scope.gameState.currentGame = new Game();
-        $scope.gameState.currentGameResult = new GameResult(false, false, Marker.Empty);
-        $scope.gameState.currentTurnResult = TurnResult.Valid;
+        $scope.gameState.currentGameResult = new GameResult(false, false, 0 /* Empty */);
+        $scope.gameState.currentTurnResult = 2 /* Valid */;
     };
 }
 //# sourceMappingURL=GameCtrl.js.map

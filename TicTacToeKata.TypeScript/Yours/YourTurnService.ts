@@ -4,8 +4,8 @@
 //  * if the square is valid, increment the turn and change the whosTurnIsIt to reflect the success.
 
 class YourTurnService implements ITurnService {
-	tryTakeTurn(game: Game, attempt: TurnAttempt): TurnResult {
-		//todo: #implementThis
-		throw 'Not Implemented';
-	}
+    tryTakeTurn(game: Game, attempt: TurnAttempt): TurnResult {
+        //todo: #implementThis
+        throw 'Not Implemented';
+    }
 }

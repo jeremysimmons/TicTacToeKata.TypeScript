@@ -4,8 +4,8 @@
 // * if there is no winner and there are still squares unclaimed, the game isStillGoing
 
 class YourGameResultService implements IGameResultService {
-	checkResult(game: Game): GameResult {
-		//todo: #implementThis
-		throw 'Not Implemented';
-	}
+    checkResult(game: Game): GameResult {
+        //todo: #implementThis
+        throw 'Not Implemented';
+    }
 } 

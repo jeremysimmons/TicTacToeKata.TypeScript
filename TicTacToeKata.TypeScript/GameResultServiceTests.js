@@ -6,10 +6,11 @@ var GameResultServiceTests = (function () {
             beforeEach(function () {
                 _this.game = new Game();
             });
-            function winningBoards(markerToWin) {
+            var winningBoards = function (markerToWin) {
+                //function winningBoards(markerToWin: Marker) {
                 describe('Winning boards for ' + Marker[markerToWin], function () {
-                    function boardToWin(nameOfBoard, gameSetup) {
-                        var _this = this;
+                    var boardToWin = function (nameOfBoard, gameSetup) {
+                        //function boardToWin(nameOfBoard: string, gameSetup: (game: Game) => void) {
                         describe(nameOfBoard, function () {
                             beforeEach(function () {
                                 gameSetup(_this.game);
@@ -28,7 +29,7 @@ var GameResultServiceTests = (function () {
                                 expect(_this.gameResult.whoWon).toBe(markerToWin);
                             });
                         });
-                    }
+                    };
                     boardToWin('across top row', function (game) {
                         game.board[0][0] = markerToWin;
                         game.board[1][0] = markerToWin;
@@ -70,7 +71,7 @@ var GameResultServiceTests = (function () {
                         game.board[2][0] = markerToWin;
                     });
                 });
-            }
+            };
             winningBoards(Marker.X);
             winningBoards(Marker.O);
             describe('Cats game (tie)', function () {

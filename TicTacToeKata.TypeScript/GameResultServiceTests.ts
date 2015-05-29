@@ -1,6 +1,7 @@
 ﻿class GameResultServiceTests {
 
-	constructor(gameResultService: IGameResultService) {
+    constructor(gameResultService: IGameResultService) {
+
 		this.gameResultService = gameResultService;
 
 		describe('GameResultService',() => {
@@ -9,10 +10,13 @@
 				this.game = new Game();
 			});
 
-			function winningBoards(markerToWin: Marker) {
+            var winningBoards = (markerToWin: Marker) => {
+
+            //function winningBoards(markerToWin: Marker) {
 				describe('Winning boards for ' + Marker[markerToWin],() => {
 
-					function boardToWin(nameOfBoard: string, gameSetup: (game: Game) => void) {
+                    var boardToWin = (nameOfBoard: string, gameSetup: (game: Game) => void) => {
+					//function boardToWin(nameOfBoard: string, gameSetup: (game: Game) => void) {
 						describe(nameOfBoard,() => {
 							beforeEach(() => {
 								gameSetup(this.game);

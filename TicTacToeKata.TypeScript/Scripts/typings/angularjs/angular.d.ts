@@ -623,7 +623,7 @@ declare module angular {
          */
         $odd: boolean;
 
-	}
+    }
 
     interface IAngularEvent {
         /**

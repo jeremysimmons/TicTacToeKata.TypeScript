@@ -135,12 +135,12 @@ declare module angular.animate {
         classNameFilter(expression?: RegExp): RegExp;
     }
 
-	///////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
     // Angular Animation Options
-	// see https://docs.angularjs.org/api/ngAnimate/#applying-directive-specific-styles-to-an-animation
-	///////////////////////////////////////////////////////////////////////////
-	interface IAnimationOptions {
-		to?: Object;
-		from?: Object;
-	}
+    // see https://docs.angularjs.org/api/ngAnimate/#applying-directive-specific-styles-to-an-animation
+    ///////////////////////////////////////////////////////////////////////////
+    interface IAnimationOptions {
+        to?: Object;
+        from?: Object;
+    }
 }

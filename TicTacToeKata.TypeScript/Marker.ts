@@ -1,5 +1,5 @@
 ﻿enum Marker {
-	Empty,
-	X,
-	O
+    Empty,
+    X,
+    O
 }

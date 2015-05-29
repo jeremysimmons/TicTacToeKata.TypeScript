@@ -3,15 +3,15 @@ var SampleGameResultService = (function () {
     }
     SampleGameResultService.prototype.checkResult = function (game) {
         var hasWinner = false;
-        var winner = Marker.Empty;
+        var winner = 0 /* Empty */;
         var isTie = false;
-        if (this.checkForColumnWinner(game.board, Marker.X) || this.checkForRowWinner(game.board, Marker.X) || this.checkForDiaginalWinner(game.board, Marker.X)) {
+        if (this.checkForColumnWinner(game.board, 1 /* X */) || this.checkForRowWinner(game.board, 1 /* X */) || this.checkForDiaginalWinner(game.board, 1 /* X */)) {
             hasWinner = true;
-            winner = Marker.X;
+            winner = 1 /* X */;
         }
-        if (this.checkForColumnWinner(game.board, Marker.O) || this.checkForRowWinner(game.board, Marker.O) || this.checkForDiaginalWinner(game.board, Marker.O)) {
+        if (this.checkForColumnWinner(game.board, 2 /* O */) || this.checkForRowWinner(game.board, 2 /* O */) || this.checkForDiaginalWinner(game.board, 2 /* O */)) {
             hasWinner = true;
-            winner = Marker.O;
+            winner = 2 /* O */;
         }
         if (!hasWinner && !this.hasEmptySpace(game.board)) {
             isTie = true;
@@ -21,7 +21,7 @@ var SampleGameResultService = (function () {
     SampleGameResultService.prototype.hasEmptySpace = function (board) {
         for (var row = 0; row < 3; row++) {
             for (var col = 0; col < 3; col++) {
-                if (board[col][row] == Marker.Empty)
+                if (board[col][row] == 0 /* Empty */)
                     return true;
             }
         }

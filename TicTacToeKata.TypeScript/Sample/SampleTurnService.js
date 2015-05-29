@@ -6,17 +6,17 @@ var SampleTurnService = (function () {
     function SampleTurnService() {
     }
     SampleTurnService.prototype.tryTakeTurn = function (game, attempt) {
-        if (game.board[attempt.x][attempt.y] != Marker.Empty)
-            return TurnResult.Invalid;
+        if (game.board[attempt.x][attempt.y] != 0 /* Empty */)
+            return 1 /* Invalid */;
         game.board[attempt.x][attempt.y] = game.whosTurnIsIt;
         game.currentTurn++;
-        if (game.whosTurnIsIt == Marker.X) {
-            game.whosTurnIsIt = Marker.O;
+        if (game.whosTurnIsIt == 1 /* X */) {
+            game.whosTurnIsIt = 2 /* O */;
         }
         else {
-            game.whosTurnIsIt = Marker.X;
+            game.whosTurnIsIt = 1 /* X */;
         }
-        return TurnResult.Valid;
+        return 2 /* Valid */;
     };
     return SampleTurnService;
 })();
